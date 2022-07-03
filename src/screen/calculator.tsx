@@ -71,7 +71,6 @@ export default function Calculator() {
 				<FlatList
 					data={characterArray}
 					renderItem={({ item }) => <GridView data={item} />}
-					keyExtractor={(item) => item.id}
 					numColumns={4}
 					keyExtractor={(item) => item}
 				/>
