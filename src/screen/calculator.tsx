@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
 	View,
@@ -10,6 +10,7 @@ import {
 } from "react-native";
 
 export default function Calculator() {
+	const [text, setText] = useState("0");
 	const characterArray = [
 		"AC",
 		"DEL",
@@ -33,18 +34,21 @@ export default function Calculator() {
 		"=",
 	];
 
-	const GridView = ({ data }) => (
-		<View style={styleSheet.gridbox}>
-			<Text
-				style={styleSheet.gridText}
-				onPress={() => {
-					getOnPressItem(data);
-				}}
-			>
-				{data}
-			</Text>
-		</View>
-	);
+	const GridView = ({ data }) => {
+		console.log(data);
+		return (
+			<View style={styleSheet.gridbox}>
+				<Text
+					style={styleSheet.gridText}
+					onPress={() => {
+						getOnPressItem(data);
+					}}
+				>
+					{data}
+				</Text>
+			</View>
+		);
+	};
 
 	const getOnPressItem = (data) => {
 		Alert.alert(data);
@@ -60,7 +64,7 @@ export default function Calculator() {
 				}}
 			>
 				<Text style={{ color: "white", fontSize: 60, marginHorizontal: 50 }}>
-					123,5
+					{text}
 				</Text>
 			</View>
 			<View
